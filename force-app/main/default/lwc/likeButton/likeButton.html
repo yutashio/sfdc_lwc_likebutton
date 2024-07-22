@@ -1,0 +1,27 @@
+<template>
+	<lightning-card>
+		<template lwc:if={spinner}>
+			<lightning-spinner alternative-text="spinner" size="medium"></lightning-spinner>
+		</template>
+		<div style="margin-inline: 10px;">
+			<template lwc:if={alreadyLiked}>
+				<lightning-button icon-name="utility:like" label="いいね！済み" onclick={onClickCancelLikeButton}></lightning-button>
+			</template>
+			<template lwc:else>
+				<lightning-button icon-name="utility:like" variant="brand" label="いいね！" onclick={onClickLikeButton}></lightning-button>
+			</template>
+			</br>
+			<div style="margin-top: 10px;">
+				いいね！件数:{likeCount}
+			</div>
+			<div style="margin-top: 5px;">
+				<template for:each={likeList} for:item="li">
+					<img src={li.User_Id__r.SmallPhotoUrl} title={li.User_Id__r.Name} key={li.key} style="width:35px;border-radius: 17.5px;" />
+				</template>
+				<template lwc:if={overLimit}>
+					...etc がいいね! と言っています。
+				</template>
+			</div>
+		</div>
+	</lightning-card>
+</template>
