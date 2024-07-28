@@ -50,7 +50,7 @@
 > [!NOTE]
 > 下記Apexクラスでアイコンの表示件数を制御しています。  
 > ※件数を変更したい場合は、数字を変更してください。  
-> ■*LikeButtonController.clsの7行目*  
+> ■*LikeButtonController.cls*  
 > ```
 > private static Integer MAX_DISPLAY_ICON = 10;
 > ```
@@ -70,7 +70,7 @@
 
 > [!NOTE]  
 > ●Target_Id_String：`Target_Id_String__c`  
-> いいね！ボタン（likebuttonコンポーネント）が、どのオブジェクトのレコードページに配置されても良いように、  
+> いいね！ボタン（likebuttonコンポーネント）が、どのオブジェクトのレコードページに配置されても良いように、
 > リレーション項目ではなく、テキスト項目でレコードIDを保持しています。  
 
 > [!CAUTION]
