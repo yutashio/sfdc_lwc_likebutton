@@ -12,6 +12,10 @@
 | --- | --- |  
 | ![複数いいね！](/docs/multiple_likes.png) | ![アイコンの表示制限](/docs/icon_display_restrictions.png) |  
 
+| いいね！を押したユーザーの一覧画面へのリンク（画像はプログラムにて3件に制限） | いいね！を押したユーザーの一覧画面 |  
+| --- | --- |  
+| ![複数いいね！](/docs/openlikeButtonWhoClicked.png) | ![アイコンの表示制限](/docs/openlikeButtonWhoClickedModal.png) |  
+
 # 準備と前提条件  
 ## カスタムオブジェクト作成
 | 表示ラベル | API 参照名 |  
@@ -86,17 +90,22 @@
 # ディレクトリ構成
 ```
 force-app
-    └─main
-        └─default
-            ├─classes
-            │      LikeButtonController.cls
-            │      LikeButtonController.cls-meta.xml
-            │      LikeButtonControllerTest.cls
-            │      LikeButtonControllerTest.cls-meta.xml
+└─main
+    └─default
+        ├─classes
+        │      LikeButtonController.cls
+        │      LikeButtonController.cls-meta.xml
+        │      LikeButtonControllerTest.cls
+        │      LikeButtonControllerTest.cls-meta.xml
+        │
+        └─lwc
+            ├─likeButton
+            │      likeButton.html
+            │      likeButton.js
+            │      likeButton.js-meta.xml
             │
-            └─lwc
-                └─likeButton
-                        likeButton.html
-                        likeButton.js
-                        likeButton.js-meta.xml
+            └─likeButtonWhoClickedModal
+                    likeButtonWhoClickedModal.html
+                    likeButtonWhoClickedModal.js
+                    likeButtonWhoClickedModal.js-meta.xml
 ```

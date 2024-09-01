@@ -83,6 +83,19 @@ public with sharing class LikeButtonController {
 		}
 	}
 
+	@AuraEnabled
+	public static LikeResult openlikeButtonWhoClickedModal(String recordId){
+		try {
+			List<Like__c> likedlist= [SELECT Id, Target_Id_String__c, User_Id__c, User_Id__r.SmallPhotoUrl, User_Id__r.Name FROM Like__c WHERE Target_Id_String__c =: recordId];
+
+			LikeResult likeResult = new LikeResult();
+			likeResult.displayLikeResult = likedlist;
+			return likeResult;
+		} catch (Exception e) {
+			throw new AuraHandledException('予期せぬエラーが発生しました。管理者に問い合わせてください。'+e.getMessage());
+		}
+	}
+
 	//ラッパークラス
 	public class LikeResult {
 		@AuraEnabled

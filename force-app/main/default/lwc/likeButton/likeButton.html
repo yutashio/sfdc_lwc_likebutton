@@ -19,7 +19,8 @@
 					<img src={li.User_Id__r.SmallPhotoUrl} title={li.User_Id__r.Name} key={li.key} style="width:35px;border-radius: 17.5px;" />
 				</template>
 				<template lwc:if={overLimit}>
-					...etc がいいね! と言っています。
+					<lightning-button variant="base" label="...etc がいいね!" onclick={openlikeButtonWhoClickedModalButton} class="slds-m-left_x-small"></lightning-button>
+					と言っています。
 				</template>
 			</div>
 		</div>

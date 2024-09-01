@@ -1,0 +1,13 @@
+<template>
+	<lightning-modal-header label={label}></lightning-modal-header>
+	<lightning-modal-body>
+		<template for:each={record} for:item="li">
+			<ul key={li.key} style="margin: 10px 0;">
+				<li key={li.key} style="border-bottom: 1px solid #dddbda; padding-left: 15px;">
+					<img src={li.User_Id__r.SmallPhotoUrl} title={li.User_Id__r.Name} key={li.key} style="width:35px;border-radius: 17.5px;" />
+					{li.User_Id__r.Name}
+				</li>
+			</ul>
+		</template>
+	</lightning-modal-body>
+</template>

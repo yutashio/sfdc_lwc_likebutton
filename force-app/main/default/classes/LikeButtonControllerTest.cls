@@ -51,7 +51,6 @@ public with sharing class LikeButtonControllerTest {
 		System.assertEquals(false, lsDel.overLimit);
 	}
 
-
 	/**
 	 * ■正常パターン
 	 * アイコンの画面表示制限件確認。
@@ -108,6 +107,33 @@ public with sharing class LikeButtonControllerTest {
 		System.assertEquals(11, result.get(10).totalLikeCount);
 		System.assertEquals(10, result.get(10).displayLikeResult.size());
 		System.assertEquals(true, result.get(10).overLimit);
+	}
+
+	/**
+	 * ■正常パターン
+	 * モーダル「いいね！と言っているユーザー」表示ケース
+	 */
+	@isTest
+	public static void openlikeButtonWhoClickedModalTest(){
+		Profile prof = [Select Id from Profile Where Name = 'システム管理者'];
+
+		//ユーザーを20件作成
+		List<User> users = createUser('システム管理者', 20);
+		insert users;
+
+		//取引先を1件作成
+		List<Account> accounts = createAccount(1);
+		insert accounts;
+
+		Test.startTest();
+			List<LikeButtonController.LikeResult> result = new List<LikeButtonController.LikeResult>();
+			for(Integer k = 0; k <= 19; k++){
+				LikeButtonController.onClickLike(accounts.get(0).Id, users.get(k).Id);
+			}
+			result.add(LikeButtonController.openlikeButtonWhoClickedModal(accounts.get(0).Id));
+		Test.stopTest();
+
+		System.assertEquals(20, result.get(0).displayLikeResult.size());
 	}
 
 
