@@ -19,12 +19,12 @@
 | いいね | Like__c |  
 
 ## 項目作成
-| 表示ラベル | API 参照名 | データ型 | 数式 |  
+| 表示ラベル | API 参照名 | データ型 | 詳細 |  
 | --- | --- | --- | --- |  
-| いいね名 | `Name` | 自動採番 | - |  
-| User | `User_Id__c` | 参照関係(ユーザー) | - |  
+| いいね名 | `Name` | 自動採番 | ■表示形式</br>`like-{00000000}` |  
+| User | `User_Id__c` | 参照関係(ユーザー) | ■子リレーション名</br>`User_Ids` |  
 | Target_Id_String | `Target_Id_String__c` | テキスト(255) | - |  
-| Target_Record_Url | `Target_Record_Url__c` | 数式 (テキスト) | HYPERLINK(LEFT($Api.Partner_Server_URL_350 ,FIND("/services/Soap/", $Api.Partner_Server_URL_350))& Target_Id_String__c, "レコードへ遷移") |  
+| Target_Record_Url | `Target_Record_Url__c` | 数式 (テキスト) | ■数式</br>`HYPERLINK(LEFT($Api.Partner_Server_URL_350 ,FIND("/services/Soap/", $Api.Partner_Server_URL_350))& Target_Id_String__c, "レコードへ遷移")` |  
 
 ## いいね！ボタン（likebuttonコンポーネント）の配置  
 配置手順は下記2つ  
